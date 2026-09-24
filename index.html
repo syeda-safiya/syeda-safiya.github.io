@@ -312,21 +312,10 @@ strong,b{color:var(--heading);font-weight:600;}
 }
 @media (min-width:820px){.about-blocks{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:3rem;}}
 .about-block p{font-size:.98rem;}
-.cloud{max-width:58ch;line-height:2.25;}
-.cloud .w{
-  display:inline-block;color:var(--heading);font-weight:600;letter-spacing:-.01em;
-  transition:transform .2s cubic-bezier(.16,1,.3,1),color .2s;
+.pipeline{
+  font-size:.98rem;line-height:2.1;color:var(--heading);max-width:56ch;word-spacing:.08em;
 }
-.cloud .w:hover{transform:translateY(-2px);color:var(--cta-hover);}
-.cloud .lg{font-family:'Fraunces',serif;font-size:1.35rem;font-weight:700;}
-.cloud .md{font-size:1.05rem;}
-.cloud .sm{font-size:.92rem;font-weight:500;}
-.cloud .alt{font-family:'Fraunces',serif;font-style:italic;font-weight:500;color:var(--blush-ink);}
-.cloud .alt2{color:var(--pos-text);}
-.cloud b{
-  display:inline-block;font-weight:400;font-size:.7rem;color:var(--alabaster);
-  padding:0 .55rem;vertical-align:.18em;
-}
+.pipeline i{font-style:normal;color:var(--sage-hover);padding:0 .5rem;}
 
 /* ============================================================
    6. GROWTH CYCLE
@@ -453,54 +442,6 @@ strong,b{color:var(--heading);font-weight:600;}
 /* ============================================================
    10. TAB RAIL + PANELS
    ============================================================ */
-.rail-outer{
-  position:sticky;top:calc(env(safe-area-inset-top,0px) + 66px);z-index:50;
-  background:var(--band);
-}
-.rail-shell{position:relative;width:100%;max-width:var(--wrap);margin:0 auto;}
-.rail{
-  display:flex;gap:.4rem;overflow-x:auto;scroll-snap-type:x proximity;
-  padding:.65rem 2.2rem;-webkit-overflow-scrolling:touch;
-  scrollbar-width:none;cursor:grab;
-}
-.rail.dragging{cursor:grabbing;scroll-snap-type:none;scroll-behavior:auto;}
-.rail.dragging .tab-btn{pointer-events:none;}
-@media (min-width:768px){.rail{padding:.65rem 2.6rem;}}
-.rail-nav{
-  position:absolute;top:50%;transform:translateY(-50%);z-index:2;
-  width:28px;height:28px;border-radius:50%;display:grid;place-items:center;cursor:pointer;
-  border:1px solid rgba(234,242,236,.3);color:var(--on-band);
-  background:color-mix(in srgb,var(--band) 30%,transparent);
-  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
-  transition:background-color .18s,border-color .18s,opacity .18s;
-}
-@media (min-width:768px){.rail-nav{width:30px;height:30px;}}
-.rail-nav:hover{background:var(--cta);border-color:var(--cta);color:#fff;}
-.rail-nav[disabled]{opacity:.22;cursor:default;}
-.rail-nav[disabled]:hover{background:color-mix(in srgb,var(--band) 30%,transparent);border-color:rgba(234,242,236,.3);color:var(--on-band);}
-.rail-nav svg{width:15px;height:15px;}
-.rail-nav.prev{left:.2rem;}
-.rail-nav.next{right:.2rem;}
-.rail::-webkit-scrollbar{display:none;}
-.tab-btn{
-  text-decoration:none;flex:0 0 auto;scroll-snap-align:center;cursor:pointer;white-space:nowrap;
-  display:inline-flex;align-items:center;gap:.5rem;
-  padding:.42rem .9rem;border-radius:99px;
-  border:1px solid rgba(234,242,236,.22);background:transparent;
-  color:color-mix(in srgb,var(--on-band) 78%,transparent);
-  font-family:'Inter',sans-serif;font-size:.85rem;font-weight:500;
-  transition:background-color .18s,border-color .18s,color .18s;
-}
-.tab-btn:hover{border-color:rgba(234,242,236,.5);color:var(--on-band);}
-.tab-btn .n{font-size:.72rem;font-variant-numeric:tabular-nums;opacity:.65;}
-.tab-btn[aria-current="true"]{
-  background-color:var(--cta);background-image:var(--cta-grad);
-  border-color:var(--cta-hover);color:#fff;font-weight:600;
-  box-shadow:var(--cta-lift),var(--cta-edge);
-}
-.tab-btn[aria-current="true"] .n{opacity:.85;}
-.rail-outer:focus-within .tab-btn:focus-visible{outline-color:var(--cta);}
-
 .panel{padding-block:clamp(2.2rem,5vw,3.75rem) clamp(2.5rem,5vw,4rem);}
 .panel-head-text{max-width:72ch;}
 /* narrow screens: text wraps around the stamp, then runs full width */
@@ -516,14 +457,14 @@ strong,b{color:var(--heading);font-weight:600;}
 /* scalloped chapter stamp */
 .stamp{align-self:start;}
 .stamp svg{width:100%;height:auto;display:block;overflow:visible;}
-.stamp .rot{transform-box:view-box;transform-origin:60px 60px;transform:rotate(var(--stamp-rot,0deg));}
-.stamp .scallop{fill:var(--canvas-tint);stroke:var(--cta);stroke-width:1;}
-.stamp .ring{fill:none;stroke:var(--sage-hover);stroke-width:.7;}
-.stamp text{font-family:'Inter',sans-serif;font-weight:600;fill:var(--cta-hover);}
-.stamp .t-top{font-size:7.1px;letter-spacing:.4px;}
-.stamp .t-bot{font-size:6.6px;letter-spacing:1.5px;}
-.stamp .ico{fill:none;stroke:var(--heading);stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;}
-@media (prefers-reduced-motion:reduce){.stamp .rot{transform:none;}}
+.stamp .rot,.ch-stamp .rot{transform-box:view-box;transform-origin:60px 60px;transform:rotate(var(--stamp-rot,0deg));}
+.stamp .scallop,.ch-stamp .scallop{fill:var(--canvas-tint);stroke:var(--cta);stroke-width:1;}
+.stamp .ring,.ch-stamp .ring{fill:none;stroke:var(--sage-hover);stroke-width:.7;}
+.stamp text,.ch-stamp text{font-family:'Inter',sans-serif;font-weight:600;fill:var(--cta-hover);}
+.stamp .t-top,.ch-stamp .t-top{font-size:9.2px;letter-spacing:.3px;}
+.stamp .t-bot,.ch-stamp .t-bot{font-size:9.2px;letter-spacing:.3px;}
+.stamp .ico,.ch-stamp .ico{fill:none;stroke:var(--heading);stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;}
+@media (prefers-reduced-motion:reduce){.stamp .rot,.ch-stamp .rot{transform:none;}}
 .panel-tag{margin-bottom:1rem;}
 .panel-tag b{
   display:inline-block;font-size:.72rem;font-weight:600;letter-spacing:.11em;
@@ -585,11 +526,16 @@ strong,b{color:var(--heading);font-weight:600;}
 .decision{
   margin-top:clamp(2rem,4vw,3rem);display:grid;gap:1.2rem;
   background:var(--blush);border:0;border-radius:0;
-  margin-inline:calc(50% - 50vw);
-  padding-block:clamp(1.6rem,3.5vw,2.4rem);
-  padding-inline:max(1.25rem,calc(50vw - 570px + 1.25rem));
+  /* bleed to the card's inner edges, never past them */
+  margin-inline:calc(-1 * clamp(1rem,3vw,1.5rem));
+  padding-block:clamp(1.5rem,3.5vw,2.1rem);
+  padding-inline:clamp(1rem,3vw,1.5rem);
 }
-@media (min-width:768px){.decision{padding-inline:max(2rem,calc(50vw - 570px + 2rem));}}
+/* the decision closes each chapter, so round it into the card's corners */
+.chapter-body > .decision:last-child{
+  margin-bottom:calc(-1 * clamp(1.6rem,4vw,2.4rem));
+  border-radius:0 0 calc(var(--r-lg) - 1px) calc(var(--r-lg) - 1px);
+}
 @media (min-width:820px){.decision{grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:2rem;}}
 .decision p{max-width:72ch;}
 .decision .kicker{margin-bottom:.4rem;display:block;}
@@ -885,6 +831,105 @@ td strong{color:var(--heading);}
 .footer-row{display:flex;flex-wrap:wrap;gap:.8rem 1.5rem;align-items:center;justify-content:space-between;font-size:.84rem;}
 .to-top{text-decoration:none;font-weight:600;color:var(--heading);border-bottom:1.5px solid var(--cta);}
 
+/* ============================================================
+   CHAPTER ACCORDIONS
+   ============================================================ */
+#panels{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 1.25rem clamp(2rem,5vw,3rem);}
+@media (min-width:768px){#panels{padding:0 2rem clamp(2rem,5vw,3rem);}}
+@media (min-width:560px){.chapter > summary{gap:1rem;}}
+
+.chapter{
+  border:1px solid var(--sage);border-radius:var(--r-lg);background:var(--canvas-tint);
+  margin-bottom:.7rem;
+  transition:border-color .2s,background-color .2s,box-shadow .2s;
+}
+.chapter:hover{border-color:var(--sage-hover);box-shadow:var(--ghost-lift);}
+.chapter[open]{background:var(--canvas);border-color:var(--sage-hover);box-shadow:var(--ghost-lift);}
+.ch-sentinel{display:block;height:1px;margin-bottom:-1px;}
+
+.chapter > summary{
+  list-style:none;cursor:pointer;display:grid;
+  grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:.8rem;
+  padding:clamp(.9rem,2.5vw,1.3rem) clamp(1rem,3vw,1.5rem);
+  border-radius:var(--r-lg);background:var(--canvas-tint);
+}
+.chapter > summary::-webkit-details-marker{display:none;}
+.chapter > summary:focus-visible{outline:3px solid var(--focus);outline-offset:-3px;}
+
+/* open chapters keep their header within reach */
+.chapter[open] > summary{
+  position:sticky;top:var(--header-h,66px);z-index:20;
+  background:var(--canvas);
+  border-bottom:1px solid var(--rule);
+  border-radius:var(--r-lg) var(--r-lg) 0 0;
+}
+
+.ch-stamp{display:block;width:64px;flex:none;}
+@media (min-width:560px){.ch-stamp{width:96px;}}
+@media (min-width:768px){.ch-stamp{width:150px;}}
+.ch-stamp svg{width:100%;height:auto;display:block;overflow:visible;}
+
+.ch-text{min-width:0;}
+.ch-tag{
+  display:inline-flex;align-items:baseline;gap:.6rem;
+  font-size:.7rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
+  background:var(--alabaster);color:#14240d;
+  padding:.3rem .65rem;border-radius:999px;margin-bottom:.55rem;
+}
+@media (min-width:560px){
+  .ch-tag{font-size:clamp(.8rem,1.5vw,.95rem);letter-spacing:.07em;padding:.4rem .85rem;}
+}
+.ch-tag b{font-family:'Fraunces',serif;font-weight:700;font-size:1em;opacity:.65;letter-spacing:0;}
+.ch-title{
+  display:block;font-family:'Fraunces',serif;font-weight:700;color:var(--heading);
+  font-size:clamp(1rem,1.7vw,1.15rem);line-height:1.25;letter-spacing:-.01em;
+}
+.ch-result{
+  display:block;font-size:.88rem;color:var(--pos-text);margin-top:.5rem;
+  font-variant-numeric:tabular-nums;
+}
+.ch-result b{font-weight:700;}
+
+/* bare chevron */
+.ch-open{
+  display:grid;place-items:center;color:var(--body);flex:none;
+  transition:transform .25s cubic-bezier(.16,1,.3,1),color .2s;
+}
+.ch-open svg{width:20px;height:20px;}
+.chapter:hover .ch-open{color:var(--cta);}
+.chapter[open] .ch-open{transform:rotate(180deg);color:var(--cta);}
+
+/* compact bar once the header sticks */
+.chapter.stuck > summary{
+  padding-block:.5rem;
+  box-shadow:0 6px 14px -10px rgba(20,36,13,.4);
+}
+.chapter.stuck .ch-stamp{width:46px;}
+.chapter.stuck .ch-result{display:none;}
+.chapter.stuck .ch-tag{margin-bottom:.15rem;font-size:.72rem;padding:.24rem .65rem;}
+.chapter.stuck .ch-title{
+  font-size:.92rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.chapter.stuck > summary,.ch-stamp,.ch-title,.ch-tag{
+  transition:width .2s ease,font-size .2s ease,padding .2s ease;
+}
+
+.chapter-body{
+  max-width:none;
+  padding-inline:clamp(1rem,3vw,1.5rem);
+  padding-bottom:clamp(1.6rem,4vw,2.4rem);padding-top:clamp(1.2rem,3vw,1.6rem);
+}
+.chapter-body::after{content:"";display:block;clear:both;}
+.ch-intro{
+  font-size:clamp(1.02rem,2vw,1.18rem);line-height:1.6;color:var(--heading);
+  max-width:64ch;
+}
+.chapter-body .skills-line{margin-top:1.4rem;}
+@media (prefers-reduced-motion:reduce){
+  .chapter[open] .ch-open{transition:none;}
+  .chapter.stuck > summary,.ch-stamp,.ch-title,.ch-tag{transition:none;}
+}
+
 /* ---- chapter skills line + foot tools ---- */
 .skills-line{
   margin:clamp(1.4rem,3vw,2rem) 0 0;max-width:none;
@@ -1085,8 +1130,10 @@ html{scroll-behavior:smooth;}
     </div>
     <div class="about-block">
       <h2 class="mini-head">Working Style</h2>
-      <p class="cloud">
-        <span class="w lg">Market research</span><b>✦</b><span class="w md alt">Audience strategy</span><b>·</b><span class="w sm">Campaign development</span><b>✦</b><span class="w lg alt2">Creative testing</span><b>·</b><span class="w md">Performance analysis</span><b>✦</b><span class="w sm alt">Landing-page strategy, copy &amp; AI design</span><b>·</b><span class="w md alt2">AOV optimization</span><b>✦</b><span class="w lg">CRM</span><b>·</b><span class="w md alt">Range expansion</span>
+      <p class="pipeline">
+        Market research <i>|</i> Audience strategy <i>|</i> Campaign development <i>|</i> Creative testing
+        <i>|</i> Performance analysis <i>|</i> Landing-page strategy, copy and AI design
+        <i>|</i> AOV optimization <i>|</i> CRM <i>|</i> Range expansion
       </p>
     </div>
   </div>
@@ -1193,7 +1240,7 @@ html{scroll-behavior:smooth;}
       <button class="cycle-node" data-goto="3" style="--x:88%;--y:50%" type="button"><span class="n">03</span><span class="l">Ad Campaign Testing</span></button>
       <button class="cycle-node" data-goto="4" style="--x:76.9%;--y:76.9%" type="button"><span class="n">04</span><span class="l">Campaign Performance</span></button>
       <button class="cycle-node" data-goto="5" style="--x:50%;--y:88%" type="button"><span class="n">05</span><span class="l">Landing Page Optimization</span></button>
-      <button class="cycle-node" data-goto="6" style="--x:23.1%;--y:76.9%" type="button"><span class="n">06</span><span class="l">AOV Optimization</span></button>
+      <button class="cycle-node" data-goto="6" style="--x:23.1%;--y:76.9%" type="button"><span class="n">06</span><span class="l">Offer Optimization</span></button>
       <button class="cycle-node" data-goto="7" style="--x:12%;--y:50%" type="button"><span class="n">07</span><span class="l">Retention</span></button>
       <button class="cycle-node" data-goto="8" style="--x:23.1%;--y:23.1%" type="button"><span class="n">08</span><span class="l">Product Expansion</span></button>
     </div>
@@ -1202,59 +1249,41 @@ html{scroll-behavior:smooth;}
 </section>
 
 <div class="wrap chapters-intro">
-  <p class="note">Explore The Case Study ↓</p>
-  <p class="contents" aria-label="What the eight chapters cover">
-    <span>Research</span><i>→</i><span>Segmentation</span><i>→</i><span>Testing</span><i>→</i><span>Scaling</span><i>→</i><span>Landing Page</span><i>→</i><span>AOV</span><i>→</i><span>Retention</span><i>→</i><span>Expansion</span>
-  </p>
+  <p class="note">Explore The Case Study — open any chapter ↓</p>
 </div>
 
-<!-- ========== CHAPTER RAIL + PANELS ========== -->
 <div class="case-shell">
-<div class="rail-outer">
-  <div class="rail-shell">
-    <button class="rail-nav prev" type="button" aria-label="Previous chapters">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg>
-    </button>
-    <button class="rail-nav next" type="button" aria-label="More chapters">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
-    </button>
-  <nav class="rail" aria-label="Case study chapters" id="rail">
-    <a class="tab-btn" id="tab-1" href="#panel-1" aria-current="true"><span class="n">01</span><span class="name">Market &amp; Customer Research</span></a>
-    <a class="tab-btn" id="tab-2" href="#panel-2"><span class="n">02</span><span class="name">Consumer Psychology</span></a>
-    <a class="tab-btn" id="tab-3" href="#panel-3"><span class="n">03</span><span class="name">Creative Strategy &amp; Testing</span></a>
-    <a class="tab-btn" id="tab-4" href="#panel-4"><span class="n">04</span><span class="name">Performance &amp; Scaling</span></a>
-    <a class="tab-btn" id="tab-5" href="#panel-5"><span class="n">05</span><span class="name">Landing Page CRO</span></a>
-    <a class="tab-btn" id="tab-6" href="#panel-6"><span class="n">06</span><span class="name">Offer &amp; AOV Strategy</span></a>
-    <a class="tab-btn" id="tab-7" href="#panel-7"><span class="n">07</span><span class="name">CRM &amp; Lifecycle Growth</span></a>
-    <a class="tab-btn" id="tab-8" href="#panel-8"><span class="n">08</span><span class="name">Product &amp; Range Strategy</span></a>
-  </nav>
-  </div>
-</div>
-
 <div id="panels">
 <!-- ===================== CHAPTER 01 ===================== -->
-<section class="panel wrap" id="panel-1">
-  <div class="panel-head">
-    <div class="stamp" aria-hidden="true">
+<details class="chapter" id="panel-1">
+  <span class="ch-sentinel" aria-hidden="true"></span>
+  <summary>
+    <span class="ch-stamp" aria-hidden="true">
       <svg viewBox="0 0 120 120" role="presentation">
         <g class="rot">
           <path class="scallop" d="M107.00 60.00A6.69 6.69 0 0 1 105.10 73.24A6.69 6.69 0 0 1 99.54 85.41A6.69 6.69 0 0 1 90.78 95.52A6.69 6.69 0 0 1 79.52 102.75A6.69 6.69 0 0 1 66.69 106.52A6.69 6.69 0 0 1 53.31 106.52A6.69 6.69 0 0 1 40.48 102.75A6.69 6.69 0 0 1 29.22 95.52A6.69 6.69 0 0 1 20.46 85.41A6.69 6.69 0 0 1 14.90 73.24A6.69 6.69 0 0 1 13.00 60.00A6.69 6.69 0 0 1 14.90 46.76A6.69 6.69 0 0 1 20.46 34.59A6.69 6.69 0 0 1 29.22 24.48A6.69 6.69 0 0 1 40.48 17.25A6.69 6.69 0 0 1 53.31 13.48A6.69 6.69 0 0 1 66.69 13.48A6.69 6.69 0 0 1 79.52 17.25A6.69 6.69 0 0 1 90.78 24.48A6.69 6.69 0 0 1 99.54 34.59A6.69 6.69 0 0 1 105.10 46.76A6.69 6.69 0 0 1 107.00 60.00Z"/>
           <circle class="ring" cx="60" cy="60" r="29"/>
-          <path id="arc-top-1" d="M22.5 60a37.5 37.5 0 0 1 75 0" fill="none"/>
-          <path id="arc-bot-1" d="M22.5 60a37.5 37.5 0 0 0 75 0" fill="none"/>
-          <text class="t-top" text-anchor="middle"><textPath href="#arc-top-1" startOffset="50%" textLength="110" lengthAdjust="spacingAndGlyphs">✦ PLANTING THE SEED ✦</textPath></text>
-          <text class="t-bot" text-anchor="middle"><textPath href="#arc-bot-1" startOffset="50%">CHAPTER 01</textPath></text>
+          <path id="arc-top-1" d="M25.5 60a34.5 34.5 0 0 1 69 0" fill="none"/>
+          <path id="arc-bot-1" d="M18.5 60a41.5 41.5 0 0 0 83 0" fill="none"/>
+          <text class="t-top" text-anchor="middle"><textPath href="#arc-top-1" startOffset="50%">PLANTING</textPath></text>
+          <text class="t-bot" text-anchor="middle"><textPath href="#arc-bot-1" startOffset="50%">THE SEED</textPath></text>
         </g>
         <g class="ico" transform="translate(60 60) scale(1.3) translate(-16 -16)"><use href="#bot-1"/></g>
       </svg>
-    </div>
-    <div class="panel-head-text">
-      <p class="panel-tag"><b>Market &amp; Customer Research</b></p>
-      <h2>Identifying A High-Growth Product Opportunity</h2>
-      <p class="lede">After evaluating 30+ emerging ingredients and formats, consumer demand, marketplace growth and R&amp;D feasibility, I identified Snail Mucin as the strongest launch opportunity.</p>
-    </div>
-  </div>
+    </span>
+    <span class="ch-text">
+      <span class="ch-tag"><b>01</b>Market &amp; Customer Research</span>
+      <span class="ch-title">Identifying A High-Growth Product Opportunity</span>
+      <span class="ch-result"><b>Result:</b> 30+ opportunities evaluated → 1 product platform selected</span>
+    </span>
+    <span class="ch-open" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </span>
+  </summary>
+  <div class="chapter-body wrap">
+    <p class="ch-intro">I evaluated 30+ emerging ingredients against consumer demand, marketplace growth and R&amp;D feasibility, and identified Snail Mucin as SkinKraft’s strongest launch opportunity.</p>
 
+  
   <p class="skills-line"><b>Skills Applied</b>Customer research · Competitor research · Trend analysis · DTC ecommerce</p>
 
   <div class="block">
@@ -1296,28 +1325,37 @@ html{scroll-behavior:smooth;}
   </div>
 </section>
 <!-- ===================== CHAPTER 02 ===================== -->
-<section class="panel wrap" id="panel-2">
-  <div class="panel-head">
-    <div class="stamp" aria-hidden="true">
+  </div>
+</details>
+<details class="chapter" id="panel-2">
+  <span class="ch-sentinel" aria-hidden="true"></span>
+  <summary>
+    <span class="ch-stamp" aria-hidden="true">
       <svg viewBox="0 0 120 120" role="presentation">
         <g class="rot">
           <path class="scallop" d="M107.00 60.00A6.69 6.69 0 0 1 105.10 73.24A6.69 6.69 0 0 1 99.54 85.41A6.69 6.69 0 0 1 90.78 95.52A6.69 6.69 0 0 1 79.52 102.75A6.69 6.69 0 0 1 66.69 106.52A6.69 6.69 0 0 1 53.31 106.52A6.69 6.69 0 0 1 40.48 102.75A6.69 6.69 0 0 1 29.22 95.52A6.69 6.69 0 0 1 20.46 85.41A6.69 6.69 0 0 1 14.90 73.24A6.69 6.69 0 0 1 13.00 60.00A6.69 6.69 0 0 1 14.90 46.76A6.69 6.69 0 0 1 20.46 34.59A6.69 6.69 0 0 1 29.22 24.48A6.69 6.69 0 0 1 40.48 17.25A6.69 6.69 0 0 1 53.31 13.48A6.69 6.69 0 0 1 66.69 13.48A6.69 6.69 0 0 1 79.52 17.25A6.69 6.69 0 0 1 90.78 24.48A6.69 6.69 0 0 1 99.54 34.59A6.69 6.69 0 0 1 105.10 46.76A6.69 6.69 0 0 1 107.00 60.00Z"/>
           <circle class="ring" cx="60" cy="60" r="29"/>
-          <path id="arc-top-2" d="M22.5 60a37.5 37.5 0 0 1 75 0" fill="none"/>
-          <path id="arc-bot-2" d="M22.5 60a37.5 37.5 0 0 0 75 0" fill="none"/>
-          <text class="t-top" text-anchor="middle"><textPath href="#arc-top-2" startOffset="50%" textLength="110" lengthAdjust="spacingAndGlyphs">✦ STRENGTHENING THE ROOTS ✦</textPath></text>
-          <text class="t-bot" text-anchor="middle"><textPath href="#arc-bot-2" startOffset="50%">CHAPTER 02</textPath></text>
+          <path id="arc-top-2" d="M25.5 60a34.5 34.5 0 0 1 69 0" fill="none"/>
+          <path id="arc-bot-2" d="M18.5 60a41.5 41.5 0 0 0 83 0" fill="none"/>
+          <text class="t-top" text-anchor="middle"><textPath href="#arc-top-2" startOffset="50%">STRENGTHENING</textPath></text>
+          <text class="t-bot" text-anchor="middle"><textPath href="#arc-bot-2" startOffset="50%">THE ROOTS</textPath></text>
         </g>
         <g class="ico" transform="translate(60 60) scale(1.3) translate(-16 -16)"><use href="#bot-2"/></g>
       </svg>
-    </div>
-    <div class="panel-head-text">
-      <p class="panel-tag"><b>Consumer Psychology</b></p>
-      <h2>Turning Audience Research Into Actionable Segments</h2>
-      <p class="lede">With the product validated, my customer research turned one broad skincare audience into four motivation-led segments.</p>
-    </div>
-  </div>
+    </span>
+    <span class="ch-text">
+      <span class="ch-tag"><b>02</b>Consumer Psychology</span>
+      <span class="ch-title">Turning Audience Research Into Actionable Segments</span>
+      <span class="ch-result"><b>Result:</b> 4 audience segments · 20+ campaign hypotheses</span>
+    </span>
+    <span class="ch-open" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </span>
+  </summary>
+  <div class="chapter-body wrap">
+    <p class="ch-intro">I turned one broad skincare audience into four motivation-led segments for SkinKraft’s 98% Snail Mucin Serum, and mapped a distinct message to each.</p>
 
+  
   <p class="skills-line"><b>Skills Applied</b>Consumer psychology · Buying behaviour · Audience segmentation · Customer insights</p>
 
   <div class="block">
@@ -1423,28 +1461,37 @@ html{scroll-behavior:smooth;}
   </div>
 </section>
 <!-- ===================== CHAPTER 03 ===================== -->
-<section class="panel wrap" id="panel-3">
-  <div class="panel-head">
-    <div class="stamp" aria-hidden="true">
+  </div>
+</details>
+<details class="chapter" id="panel-3">
+  <span class="ch-sentinel" aria-hidden="true"></span>
+  <summary>
+    <span class="ch-stamp" aria-hidden="true">
       <svg viewBox="0 0 120 120" role="presentation">
         <g class="rot">
           <path class="scallop" d="M107.00 60.00A6.69 6.69 0 0 1 105.10 73.24A6.69 6.69 0 0 1 99.54 85.41A6.69 6.69 0 0 1 90.78 95.52A6.69 6.69 0 0 1 79.52 102.75A6.69 6.69 0 0 1 66.69 106.52A6.69 6.69 0 0 1 53.31 106.52A6.69 6.69 0 0 1 40.48 102.75A6.69 6.69 0 0 1 29.22 95.52A6.69 6.69 0 0 1 20.46 85.41A6.69 6.69 0 0 1 14.90 73.24A6.69 6.69 0 0 1 13.00 60.00A6.69 6.69 0 0 1 14.90 46.76A6.69 6.69 0 0 1 20.46 34.59A6.69 6.69 0 0 1 29.22 24.48A6.69 6.69 0 0 1 40.48 17.25A6.69 6.69 0 0 1 53.31 13.48A6.69 6.69 0 0 1 66.69 13.48A6.69 6.69 0 0 1 79.52 17.25A6.69 6.69 0 0 1 90.78 24.48A6.69 6.69 0 0 1 99.54 34.59A6.69 6.69 0 0 1 105.10 46.76A6.69 6.69 0 0 1 107.00 60.00Z"/>
           <circle class="ring" cx="60" cy="60" r="29"/>
-          <path id="arc-top-3" d="M22.5 60a37.5 37.5 0 0 1 75 0" fill="none"/>
-          <path id="arc-bot-3" d="M22.5 60a37.5 37.5 0 0 0 75 0" fill="none"/>
-          <text class="t-top" text-anchor="middle"><textPath href="#arc-top-3" startOffset="50%" textLength="110" lengthAdjust="spacingAndGlyphs">✦ SPROUTING NEW SHOOTS ✦</textPath></text>
-          <text class="t-bot" text-anchor="middle"><textPath href="#arc-bot-3" startOffset="50%">CHAPTER 03</textPath></text>
+          <path id="arc-top-3" d="M25.5 60a34.5 34.5 0 0 1 69 0" fill="none"/>
+          <path id="arc-bot-3" d="M18.5 60a41.5 41.5 0 0 0 83 0" fill="none"/>
+          <text class="t-top" text-anchor="middle"><textPath href="#arc-top-3" startOffset="50%">SPROUTING</textPath></text>
+          <text class="t-bot" text-anchor="middle"><textPath href="#arc-bot-3" startOffset="50%">NEW SHOOTS</textPath></text>
         </g>
         <g class="ico" transform="translate(60 60) scale(1.3) translate(-16 -16)"><use href="#bot-3"/></g>
       </svg>
-    </div>
-    <div class="panel-head-text">
-      <p class="panel-tag"><b>Creative Strategy &amp; Testing</b></p>
-      <h2>Building A Structured Creative Testing System</h2>
-      <p class="lede">Each audience motivation became a distinct campaign territory, creating a structured system for identifying which messages could attract and convert customers at scale.</p>
-    </div>
-  </div>
+    </span>
+    <span class="ch-text">
+      <span class="ch-tag"><b>03</b>Creative Strategy &amp; Testing</span>
+      <span class="ch-title">Building A Structured Creative Testing System</span>
+      <span class="ch-result"><b>Result:</b> 100+ executions tested · Anti-aging won at 5× the average CTR</span>
+    </span>
+    <span class="ch-open" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </span>
+  </summary>
+  <div class="chapter-body wrap">
+    <p class="ch-intro">I built four campaign territories for the Snail Mucin Serum — one per audience motivation — and tested 100+ executions to find which message could scale.</p>
 
+  
   <p class="skills-line"><b>Skills Applied</b>Creative angles · Hooks · Creative briefs · Static &amp; video ads</p>
 
   <div class="block">
@@ -1535,28 +1582,37 @@ html{scroll-behavior:smooth;}
   </div>
 </section>
 <!-- ===================== CHAPTER 04 ===================== -->
-<section class="panel wrap" id="panel-4">
-  <div class="panel-head">
-    <div class="stamp" aria-hidden="true">
+  </div>
+</details>
+<details class="chapter" id="panel-4">
+  <span class="ch-sentinel" aria-hidden="true"></span>
+  <summary>
+    <span class="ch-stamp" aria-hidden="true">
       <svg viewBox="0 0 120 120" role="presentation">
         <g class="rot">
           <path class="scallop" d="M107.00 60.00A6.69 6.69 0 0 1 105.10 73.24A6.69 6.69 0 0 1 99.54 85.41A6.69 6.69 0 0 1 90.78 95.52A6.69 6.69 0 0 1 79.52 102.75A6.69 6.69 0 0 1 66.69 106.52A6.69 6.69 0 0 1 53.31 106.52A6.69 6.69 0 0 1 40.48 102.75A6.69 6.69 0 0 1 29.22 95.52A6.69 6.69 0 0 1 20.46 85.41A6.69 6.69 0 0 1 14.90 73.24A6.69 6.69 0 0 1 13.00 60.00A6.69 6.69 0 0 1 14.90 46.76A6.69 6.69 0 0 1 20.46 34.59A6.69 6.69 0 0 1 29.22 24.48A6.69 6.69 0 0 1 40.48 17.25A6.69 6.69 0 0 1 53.31 13.48A6.69 6.69 0 0 1 66.69 13.48A6.69 6.69 0 0 1 79.52 17.25A6.69 6.69 0 0 1 90.78 24.48A6.69 6.69 0 0 1 99.54 34.59A6.69 6.69 0 0 1 105.10 46.76A6.69 6.69 0 0 1 107.00 60.00Z"/>
           <circle class="ring" cx="60" cy="60" r="29"/>
-          <path id="arc-top-4" d="M22.5 60a37.5 37.5 0 0 1 75 0" fill="none"/>
-          <path id="arc-bot-4" d="M22.5 60a37.5 37.5 0 0 0 75 0" fill="none"/>
-          <text class="t-top" text-anchor="middle"><textPath href="#arc-top-4" startOffset="50%" textLength="110" lengthAdjust="spacingAndGlyphs">✦ GROWING THE STEM ✦</textPath></text>
-          <text class="t-bot" text-anchor="middle"><textPath href="#arc-bot-4" startOffset="50%">CHAPTER 04</textPath></text>
+          <path id="arc-top-4" d="M25.5 60a34.5 34.5 0 0 1 69 0" fill="none"/>
+          <path id="arc-bot-4" d="M18.5 60a41.5 41.5 0 0 0 83 0" fill="none"/>
+          <text class="t-top" text-anchor="middle"><textPath href="#arc-top-4" startOffset="50%">GROWING</textPath></text>
+          <text class="t-bot" text-anchor="middle"><textPath href="#arc-bot-4" startOffset="50%">THE STEM</textPath></text>
         </g>
         <g class="ico" transform="translate(60 60) scale(1.3) translate(-16 -16)"><use href="#bot-4"/></g>
       </svg>
-    </div>
-    <div class="panel-head-text">
-      <p class="panel-tag"><b>Performance &amp; Scaling</b></p>
-      <h2>Using Performance Data To Find The Winning Message</h2>
-      <p class="lede">Within the winning territory, three message tests revealed that the most-clicked ad was not the one driving the most purchases.</p>
-    </div>
-  </div>
+    </span>
+    <span class="ch-text">
+      <span class="ch-tag"><b>04</b>Performance &amp; Scaling</span>
+      <span class="ch-title">Using Performance Data To Find The Winning Message</span>
+      <span class="ch-result"><b>Result:</b> CPA ₹750 → ₹480 · ROAS 1.8× → 4.6×</span>
+    </span>
+    <span class="ch-open" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </span>
+  </summary>
+  <div class="chapter-body wrap">
+    <p class="ch-intro">I ran three message tests inside the Snail Mucin Serum’s best-performing campaign territory, and found the most-clicked ad was not the one driving the most purchases.</p>
 
+  
   <p class="skills-line"><b>Skills Applied</b>Structured creative testing · Performance analysis · CTR · CPA · ROAS · Scale, iterate or stop</p>
 
   <div class="block">
@@ -1630,28 +1686,37 @@ html{scroll-behavior:smooth;}
   </div>
 </section>
 <!-- ===================== CHAPTER 05 ===================== -->
-<section class="panel wrap" id="panel-5">
-  <div class="panel-head">
-    <div class="stamp" aria-hidden="true">
+  </div>
+</details>
+<details class="chapter" id="panel-5">
+  <span class="ch-sentinel" aria-hidden="true"></span>
+  <summary>
+    <span class="ch-stamp" aria-hidden="true">
       <svg viewBox="0 0 120 120" role="presentation">
         <g class="rot">
           <path class="scallop" d="M107.00 60.00A6.69 6.69 0 0 1 105.10 73.24A6.69 6.69 0 0 1 99.54 85.41A6.69 6.69 0 0 1 90.78 95.52A6.69 6.69 0 0 1 79.52 102.75A6.69 6.69 0 0 1 66.69 106.52A6.69 6.69 0 0 1 53.31 106.52A6.69 6.69 0 0 1 40.48 102.75A6.69 6.69 0 0 1 29.22 95.52A6.69 6.69 0 0 1 20.46 85.41A6.69 6.69 0 0 1 14.90 73.24A6.69 6.69 0 0 1 13.00 60.00A6.69 6.69 0 0 1 14.90 46.76A6.69 6.69 0 0 1 20.46 34.59A6.69 6.69 0 0 1 29.22 24.48A6.69 6.69 0 0 1 40.48 17.25A6.69 6.69 0 0 1 53.31 13.48A6.69 6.69 0 0 1 66.69 13.48A6.69 6.69 0 0 1 79.52 17.25A6.69 6.69 0 0 1 90.78 24.48A6.69 6.69 0 0 1 99.54 34.59A6.69 6.69 0 0 1 105.10 46.76A6.69 6.69 0 0 1 107.00 60.00Z"/>
           <circle class="ring" cx="60" cy="60" r="29"/>
-          <path id="arc-top-5" d="M22.5 60a37.5 37.5 0 0 1 75 0" fill="none"/>
-          <path id="arc-bot-5" d="M22.5 60a37.5 37.5 0 0 0 75 0" fill="none"/>
-          <text class="t-top" text-anchor="middle"><textPath href="#arc-top-5" startOffset="50%" textLength="110" lengthAdjust="spacingAndGlyphs">✦ COMING INTO BLOOM ✦</textPath></text>
-          <text class="t-bot" text-anchor="middle"><textPath href="#arc-bot-5" startOffset="50%">CHAPTER 05</textPath></text>
+          <path id="arc-top-5" d="M25.5 60a34.5 34.5 0 0 1 69 0" fill="none"/>
+          <path id="arc-bot-5" d="M18.5 60a41.5 41.5 0 0 0 83 0" fill="none"/>
+          <text class="t-top" text-anchor="middle"><textPath href="#arc-top-5" startOffset="50%">COMING</textPath></text>
+          <text class="t-bot" text-anchor="middle"><textPath href="#arc-bot-5" startOffset="50%">INTO BLOOM</textPath></text>
         </g>
         <g class="ico" transform="translate(60 60) scale(1.3) translate(-16 -16)"><use href="#bot-5"/></g>
       </svg>
-    </div>
-    <div class="panel-head-text">
-      <p class="panel-tag"><b>Landing Page CRO</b></p>
-      <h2>Turning Ad Learnings Into A Higher-Converting Landing Page</h2>
-      <p class="lede">The winning Anti-Aging message shaped my AI-built landing page that lifted conversion from 1.8% to 4.6%.</p>
-    </div>
-  </div>
+    </span>
+    <span class="ch-text">
+      <span class="ch-tag"><b>05</b>Landing Page CRO</span>
+      <span class="ch-title">Turning Ad Learnings Into A Higher-Converting Landing Page</span>
+      <span class="ch-result"><b>Result:</b> Conversion 1.8% → 4.6% · Daily orders 150 → 350</span>
+    </span>
+    <span class="ch-open" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </span>
+  </summary>
+  <div class="chapter-body wrap">
+    <p class="ch-intro">I wrote, designed and AI-built a mobile-first landing page for the Snail Mucin Serum, lifting conversion from 1.8% to 4.6%.</p>
 
+  
   <p class="skills-line"><b>Skills Applied</b>Direct-response copy · Conversion rate optimization · AI-enabled production · Mobile UX</p>
 
   <p style="margin-bottom:1.2rem"><strong>End-to-end ownership:</strong> page strategy, copy, UI direction, AI-assisted build, visual production and tech handover.</p>
@@ -1712,28 +1777,37 @@ html{scroll-behavior:smooth;}
   </div>
 </section>
 <!-- ===================== CHAPTER 06 ===================== -->
-<section class="panel wrap" id="panel-6">
-  <div class="panel-head">
-    <div class="stamp" aria-hidden="true">
+  </div>
+</details>
+<details class="chapter" id="panel-6">
+  <span class="ch-sentinel" aria-hidden="true"></span>
+  <summary>
+    <span class="ch-stamp" aria-hidden="true">
       <svg viewBox="0 0 120 120" role="presentation">
         <g class="rot">
           <path class="scallop" d="M107.00 60.00A6.69 6.69 0 0 1 105.10 73.24A6.69 6.69 0 0 1 99.54 85.41A6.69 6.69 0 0 1 90.78 95.52A6.69 6.69 0 0 1 79.52 102.75A6.69 6.69 0 0 1 66.69 106.52A6.69 6.69 0 0 1 53.31 106.52A6.69 6.69 0 0 1 40.48 102.75A6.69 6.69 0 0 1 29.22 95.52A6.69 6.69 0 0 1 20.46 85.41A6.69 6.69 0 0 1 14.90 73.24A6.69 6.69 0 0 1 13.00 60.00A6.69 6.69 0 0 1 14.90 46.76A6.69 6.69 0 0 1 20.46 34.59A6.69 6.69 0 0 1 29.22 24.48A6.69 6.69 0 0 1 40.48 17.25A6.69 6.69 0 0 1 53.31 13.48A6.69 6.69 0 0 1 66.69 13.48A6.69 6.69 0 0 1 79.52 17.25A6.69 6.69 0 0 1 90.78 24.48A6.69 6.69 0 0 1 99.54 34.59A6.69 6.69 0 0 1 105.10 46.76A6.69 6.69 0 0 1 107.00 60.00Z"/>
           <circle class="ring" cx="60" cy="60" r="29"/>
-          <path id="arc-top-6" d="M22.5 60a37.5 37.5 0 0 1 75 0" fill="none"/>
-          <path id="arc-bot-6" d="M22.5 60a37.5 37.5 0 0 0 75 0" fill="none"/>
-          <text class="t-top" text-anchor="middle"><textPath href="#arc-top-6" startOffset="50%" textLength="110" lengthAdjust="spacingAndGlyphs">✦ INCREASING THE YIELD ✦</textPath></text>
-          <text class="t-bot" text-anchor="middle"><textPath href="#arc-bot-6" startOffset="50%">CHAPTER 06</textPath></text>
+          <path id="arc-top-6" d="M25.5 60a34.5 34.5 0 0 1 69 0" fill="none"/>
+          <path id="arc-bot-6" d="M18.5 60a41.5 41.5 0 0 0 83 0" fill="none"/>
+          <text class="t-top" text-anchor="middle"><textPath href="#arc-top-6" startOffset="50%">INCREASING</textPath></text>
+          <text class="t-bot" text-anchor="middle"><textPath href="#arc-bot-6" startOffset="50%">THE YIELD</textPath></text>
         </g>
         <g class="ico" transform="translate(60 60) scale(1.3) translate(-16 -16)"><use href="#bot-6"/></g>
       </svg>
-    </div>
-    <div class="panel-head-text">
-      <p class="panel-tag"><b>Offer &amp; AOV Strategy</b></p>
-      <h2>Increasing AOV Through Smarter Offer Architecture</h2>
-      <p class="lede">With conversion improving, a three-tier offer increased AOV from ₹699 to ₹1,050 while keeping the serum as the hero.</p>
-    </div>
-  </div>
+    </span>
+    <span class="ch-text">
+      <span class="ch-tag"><b>06</b>Offer &amp; AOV Strategy</span>
+      <span class="ch-title">Increasing AOV Through Smarter Offer Architecture</span>
+      <span class="ch-result"><b>Result:</b> AOV ₹699 → ₹1,050 · Revenue per visitor +62%</span>
+    </span>
+    <span class="ch-open" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </span>
+  </summary>
+  <div class="chapter-body wrap">
+    <p class="ch-intro">I built a three-tier offer ladder for the Snail Mucin Serum that raised average order value from ₹699 to ₹1,050 while keeping the serum as the hero.</p>
 
+  
   <p class="skills-line"><b>Skills Applied</b>Offer strategy · Pricing communication · Bundling · Average order value optimization</p>
 
   <div class="block">
@@ -1793,28 +1867,37 @@ html{scroll-behavior:smooth;}
 </section>
 
 <!-- ===================== CHAPTER 07 ===================== -->
-<section class="panel wrap" id="panel-7">
-  <div class="panel-head">
-    <div class="stamp" aria-hidden="true">
+  </div>
+</details>
+<details class="chapter" id="panel-7">
+  <span class="ch-sentinel" aria-hidden="true"></span>
+  <summary>
+    <span class="ch-stamp" aria-hidden="true">
       <svg viewBox="0 0 120 120" role="presentation">
         <g class="rot">
           <path class="scallop" d="M107.00 60.00A6.69 6.69 0 0 1 105.10 73.24A6.69 6.69 0 0 1 99.54 85.41A6.69 6.69 0 0 1 90.78 95.52A6.69 6.69 0 0 1 79.52 102.75A6.69 6.69 0 0 1 66.69 106.52A6.69 6.69 0 0 1 53.31 106.52A6.69 6.69 0 0 1 40.48 102.75A6.69 6.69 0 0 1 29.22 95.52A6.69 6.69 0 0 1 20.46 85.41A6.69 6.69 0 0 1 14.90 73.24A6.69 6.69 0 0 1 13.00 60.00A6.69 6.69 0 0 1 14.90 46.76A6.69 6.69 0 0 1 20.46 34.59A6.69 6.69 0 0 1 29.22 24.48A6.69 6.69 0 0 1 40.48 17.25A6.69 6.69 0 0 1 53.31 13.48A6.69 6.69 0 0 1 66.69 13.48A6.69 6.69 0 0 1 79.52 17.25A6.69 6.69 0 0 1 90.78 24.48A6.69 6.69 0 0 1 99.54 34.59A6.69 6.69 0 0 1 105.10 46.76A6.69 6.69 0 0 1 107.00 60.00Z"/>
           <circle class="ring" cx="60" cy="60" r="29"/>
-          <path id="arc-top-7" d="M22.5 60a37.5 37.5 0 0 1 75 0" fill="none"/>
-          <path id="arc-bot-7" d="M22.5 60a37.5 37.5 0 0 0 75 0" fill="none"/>
-          <text class="t-top" text-anchor="middle"><textPath href="#arc-top-7" startOffset="50%" textLength="110" lengthAdjust="spacingAndGlyphs">✦ NURTURING CONTINUED GROWTH ✦</textPath></text>
-          <text class="t-bot" text-anchor="middle"><textPath href="#arc-bot-7" startOffset="50%">CHAPTER 07</textPath></text>
+          <path id="arc-top-7" d="M25.5 60a34.5 34.5 0 0 1 69 0" fill="none"/>
+          <path id="arc-bot-7" d="M18.5 60a41.5 41.5 0 0 0 83 0" fill="none"/>
+          <text class="t-top" text-anchor="middle"><textPath href="#arc-top-7" startOffset="50%">NURTURING</textPath></text>
+          <text class="t-bot" text-anchor="middle"><textPath href="#arc-bot-7" startOffset="50%">CONTINUED GROWTH</textPath></text>
         </g>
         <g class="ico" transform="translate(60 60) scale(1.3) translate(-16 -16)"><use href="#bot-7"/></g>
       </svg>
-    </div>
-    <div class="panel-head-text">
-      <p class="panel-tag"><b>CRM &amp; Lifecycle Growth</b></p>
-      <h2>Driving Repeat Growth Through Lifecycle Marketing</h2>
-      <p class="lede">The growing customer base moved into my post-purchase journeys that increased repeat purchase by 28% and cross-sell by 22%.</p>
-    </div>
-  </div>
+    </span>
+    <span class="ch-text">
+      <span class="ch-tag"><b>07</b>CRM &amp; Lifecycle Growth</span>
+      <span class="ch-title">Driving Repeat Growth Through Lifecycle Marketing</span>
+      <span class="ch-result"><b>Result:</b> Repeat purchase +28% · Email revenue +35%</span>
+    </span>
+    <span class="ch-open" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </span>
+  </summary>
+  <div class="chapter-body wrap">
+    <p class="ch-intro">I designed a 60-day post-purchase email journey for Snail Mucin customers that increased repeat purchase by 28% and cross-sell by 22%.</p>
 
+  
   <p class="skills-line"><b>Skills Applied</b>Email marketing · Customer retention · Cross-sell · Lifecycle marketing</p>
 
   <div class="block">
@@ -1885,28 +1968,37 @@ html{scroll-behavior:smooth;}
   </div>
 </section>
 <!-- ===================== CHAPTER 08 ===================== -->
-<section class="panel wrap" id="panel-8">
-  <div class="panel-head">
-    <div class="stamp" aria-hidden="true">
+  </div>
+</details>
+<details class="chapter" id="panel-8">
+  <span class="ch-sentinel" aria-hidden="true"></span>
+  <summary>
+    <span class="ch-stamp" aria-hidden="true">
       <svg viewBox="0 0 120 120" role="presentation">
         <g class="rot">
           <path class="scallop" d="M107.00 60.00A6.69 6.69 0 0 1 105.10 73.24A6.69 6.69 0 0 1 99.54 85.41A6.69 6.69 0 0 1 90.78 95.52A6.69 6.69 0 0 1 79.52 102.75A6.69 6.69 0 0 1 66.69 106.52A6.69 6.69 0 0 1 53.31 106.52A6.69 6.69 0 0 1 40.48 102.75A6.69 6.69 0 0 1 29.22 95.52A6.69 6.69 0 0 1 20.46 85.41A6.69 6.69 0 0 1 14.90 73.24A6.69 6.69 0 0 1 13.00 60.00A6.69 6.69 0 0 1 14.90 46.76A6.69 6.69 0 0 1 20.46 34.59A6.69 6.69 0 0 1 29.22 24.48A6.69 6.69 0 0 1 40.48 17.25A6.69 6.69 0 0 1 53.31 13.48A6.69 6.69 0 0 1 66.69 13.48A6.69 6.69 0 0 1 79.52 17.25A6.69 6.69 0 0 1 90.78 24.48A6.69 6.69 0 0 1 99.54 34.59A6.69 6.69 0 0 1 105.10 46.76A6.69 6.69 0 0 1 107.00 60.00Z"/>
           <circle class="ring" cx="60" cy="60" r="29"/>
-          <path id="arc-top-8" d="M22.5 60a37.5 37.5 0 0 1 75 0" fill="none"/>
-          <path id="arc-bot-8" d="M22.5 60a37.5 37.5 0 0 0 75 0" fill="none"/>
-          <text class="t-top" text-anchor="middle"><textPath href="#arc-top-8" startOffset="50%" textLength="110" lengthAdjust="spacingAndGlyphs">✦ EXPANDING THE GARDEN ✦</textPath></text>
-          <text class="t-bot" text-anchor="middle"><textPath href="#arc-bot-8" startOffset="50%">CHAPTER 08</textPath></text>
+          <path id="arc-top-8" d="M25.5 60a34.5 34.5 0 0 1 69 0" fill="none"/>
+          <path id="arc-bot-8" d="M18.5 60a41.5 41.5 0 0 0 83 0" fill="none"/>
+          <text class="t-top" text-anchor="middle"><textPath href="#arc-top-8" startOffset="50%">EXPANDING</textPath></text>
+          <text class="t-bot" text-anchor="middle"><textPath href="#arc-bot-8" startOffset="50%">THE GARDEN</textPath></text>
         </g>
         <g class="ico" transform="translate(60 60) scale(1.3) translate(-16 -16)"><use href="#bot-8"/></g>
       </svg>
-    </div>
-    <div class="panel-head-text">
-      <p class="panel-tag"><b>Product &amp; Range Strategy</b></p>
-      <h2>Using Bestseller Data To Find The Next Growth Opportunity</h2>
-      <p class="lede">Those retention and cross-sell signals uncovered my next opportunity: a research-backed four-product Snail Mucin expansion roadmap.</p>
-    </div>
-  </div>
+    </span>
+    <span class="ch-text">
+      <span class="ch-tag"><b>08</b>Product &amp; Range Strategy</span>
+      <span class="ch-title">Using Bestseller Data To Find The Next Growth Opportunity</span>
+      <span class="ch-result"><b>Projected:</b> 4 categories prioritised · 2× projected category revenue</span>
+    </span>
+    <span class="ch-open" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </span>
+  </summary>
+  <div class="chapter-body wrap">
+    <p class="ch-intro">I used SkinKraft’s bestseller data to build a research-backed, four-product Snail Mucin expansion roadmap.</p>
 
+  
   <p class="skills-line"><b>Skills Applied</b>Market research · Product strategy · Commercial opportunity · Range expansion</p>
 
   <p style="margin-bottom:1.2rem"><strong>R&amp;D partnership:</strong> R&amp;D evaluated formulation feasibility and developed the technical solution.</p>
@@ -2082,123 +2174,83 @@ html{scroll-behavior:smooth;}
     try { localStorage.setItem("saf-theme", next); } catch (e) {}
   });
 
-  /* ---------- chapter navigation: one continuous scroll ---------- */
-  var rail = document.getElementById("rail");
-  var tabs = Array.prototype.slice.call(rail.querySelectorAll(".tab-btn"));
-  var panels = tabs.map(function(t){ return document.querySelector(t.getAttribute("href")); });
+  /* ---------- chapters: open on demand, from anywhere ---------- */
+  var chapters = Array.prototype.slice.call(document.querySelectorAll(".chapter"));
   var nodes = Array.prototype.slice.call(document.querySelectorAll("[data-goto]"));
   var headerEl = document.querySelector(".site-header");
-  var railEl = document.querySelector(".rail-outer");
 
   function reduceMotion(){
     return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   }
-
   function stickyOffset(){
-    return headerEl.getBoundingClientRect().height + railEl.getBoundingClientRect().height;
+    return headerEl.getBoundingClientRect().height;
   }
-
-  /* keep hash links and keyboard focus clear of the two sticky bars */
-  function syncScrollPadding(){
-    document.documentElement.style.scrollPaddingTop = (stickyOffset() + 12) + "px";
+  function syncHeader(){
+    var h = Math.round(stickyOffset());
+    document.documentElement.style.setProperty("--header-h", h + "px");
+    document.documentElement.style.scrollPaddingTop = (h + 16) + "px";
+    return h;
   }
-  syncScrollPadding();
-  window.addEventListener("resize", syncScrollPadding, { passive: true });
+  var headerH = syncHeader();
+  window.addEventListener("resize", function(){ headerH = syncHeader(); buildObserver(); }, { passive: true });
 
-  function goToPanel(index){
-    if (index < 0) index = 0;
-    if (index > panels.length - 1) index = panels.length - 1;
-    var top = window.pageYOffset + panels[index].getBoundingClientRect().top - stickyOffset() - 10;
-    window.scrollTo({ top: top, behavior: reduceMotion() ? "auto" : "smooth" });
+  /* a 1px sentinel above each summary tells us when the header has stuck */
+  var observer = null;
+  function buildObserver(){
+    if (observer) observer.disconnect();
+    observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        var ch = entry.target.closest(".chapter");
+        if (ch) ch.classList.toggle("stuck", !entry.isIntersecting && ch.open);
+      });
+    }, { rootMargin: "-" + (headerH + 1) + "px 0px 0px 0px", threshold: 0 });
+    document.querySelectorAll(".ch-sentinel").forEach(function(el){ observer.observe(el); });
   }
+  buildObserver();
 
-  var current = -1;
-  function markActive(index){
-    if (index === current) return;
-    current = index;
-    tabs.forEach(function(tab, i){
-      if (i === index) tab.setAttribute("aria-current", "true");
-      else tab.removeAttribute("aria-current");
+  function openChapter(index){
+    if (index < 0 || index > chapters.length - 1) return;
+    var ch = chapters[index];
+    ch.open = true;
+    /* let the panel lay out before measuring where to land */
+    window.requestAnimationFrame(function(){
+      var top = window.pageYOffset + ch.getBoundingClientRect().top - stickyOffset() - 12;
+      window.scrollTo({ top: top, behavior: reduceMotion() ? "auto" : "smooth" });
     });
+    markActive(index);
+  }
+
+  function markActive(index){
     nodes.forEach(function(n){
       if (n.classList.contains("cycle-node")) {
         n.setAttribute("aria-current", Number(n.dataset.goto) === index + 1 ? "true" : "false");
       }
     });
-    /* centre the pill by moving the rail only -- scrollIntoView would also
-       scroll the page and cancel any smooth scroll already in flight */
-    if (index >= 0) {
-      var tab = tabs[index];
-      var target = tab.offsetLeft - (rail.clientWidth - tab.offsetWidth) / 2;
-      var max = rail.scrollWidth - rail.clientWidth;
-      target = Math.max(0, Math.min(max, target));
-      if (Math.abs(rail.scrollLeft - target) > 2) {
-        rail.scrollTo({ left: target, behavior: reduceMotion() ? "auto" : "smooth" });
-      }
-    }
   }
 
-  /* scroll-spy: the chapter whose top has passed under the sticky bars wins */
-  var spyTicking = false;
-  function spy(){
-    var line = stickyOffset() + 24;
-    var index = -1;
-    for (var i = 0; i < panels.length; i++) {
-      if (panels[i].getBoundingClientRect().top <= line) index = i;
-    }
-    /* past the last chapter, keep the last one lit */
-    markActive(index < 0 ? 0 : index);
-    spyTicking = false;
-  }
-  window.addEventListener("scroll", function(){
-    if (!spyTicking) { spyTicking = true; window.requestAnimationFrame(spy); }
-  }, { passive: true });
-  window.addEventListener("resize", spy, { passive: true });
-  spy();
-
-  tabs.forEach(function(tab, i){
-    tab.addEventListener("click", function(ev){
+  /* growth-cycle nodes + any in-page chapter link */
+  nodes.forEach(function(el){
+    el.addEventListener("click", function(ev){
       ev.preventDefault();
-      goToPanel(i);
-      history.replaceState(null, "", tab.getAttribute("href"));
+      openChapter(Number(el.dataset.goto) - 1);
     });
   });
 
-  /* rail: arrows + click-and-drag scrolling */
-  var prevBtn = document.querySelector(".rail-nav.prev");
-  var nextBtn = document.querySelector(".rail-nav.next");
-  var syncArrows = function(){
-    var max = rail.scrollWidth - rail.clientWidth - 1;
-    prevBtn.disabled = rail.scrollLeft <= 0;
-    nextBtn.disabled = rail.scrollLeft >= max;
-  };
-  var nudge = function(dir){
-    rail.scrollBy({ left: dir * Math.max(200, rail.clientWidth * 0.7), behavior: "smooth" });
-  };
-  prevBtn.addEventListener("click", function(){ nudge(-1); });
-  nextBtn.addEventListener("click", function(){ nudge(1); });
-  rail.addEventListener("scroll", syncArrows, { passive: true });
-  window.addEventListener("resize", syncArrows, { passive: true });
-  syncArrows();
+  /* a #panel-N link or a page loaded on one opens that chapter */
+  function openFromHash(){
+    var m = /^#panel-(\d)$/.exec(location.hash);
+    if (m) openChapter(Number(m[1]) - 1);
+  }
+  window.addEventListener("hashchange", openFromHash);
+  openFromHash();
 
-  var down = false, startX = 0, startScroll = 0, moved = 0;
-  rail.addEventListener("pointerdown", function(e){
-    if (e.pointerType === "touch") return;      /* native touch scrolling handles this */
-    down = true; moved = 0;
-    startX = e.clientX; startScroll = rail.scrollLeft;
+  /* keep the growth cycle in step with whatever the reader opens */
+  chapters.forEach(function(ch, i){
+    ch.addEventListener("toggle", function(){
+      if (ch.open) markActive(i);
+      else ch.classList.remove("stuck");
+    });
   });
-  window.addEventListener("pointermove", function(e){
-    if (!down) return;
-    var dx = e.clientX - startX;
-    if (Math.abs(dx) > 4) { moved = 1; rail.classList.add("dragging"); }
-    if (moved) rail.scrollLeft = startScroll - dx;
-  });
-  window.addEventListener("pointerup", function(){
-    if (!down) return;
-    down = false;
-    setTimeout(function(){ rail.classList.remove("dragging"); }, 0);
-  });
-  rail.addEventListener("dragstart", function(e){ e.preventDefault(); });
 
   /* contact dropdown opens from any contact link */
   var drop = document.getElementById("contactDrop");
@@ -2208,7 +2260,7 @@ html{scroll-behavior:smooth;}
 
   /* scroll-driven stamp rotation: a bounded swing as the stamp crosses the viewport */
   if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    var rings = Array.prototype.slice.call(document.querySelectorAll(".stamp .rot"));
+    var rings = Array.prototype.slice.call(document.querySelectorAll(".rot"));
     var ticking = false;
     var spin = function(){
       var vh = window.innerHeight;
@@ -2226,17 +2278,11 @@ html{scroll-behavior:smooth;}
     }, { passive: true });
     window.addEventListener("resize", spin, { passive: true });
     spin();
-    document.getElementById("rail").addEventListener("click", function(){ setTimeout(spin, 60); });
   }
 
-  /* growth-cycle nodes + "next chapter" links */
-  nodes.forEach(function(el){
-    el.addEventListener("click", function(ev){
-      ev.preventDefault();
-      goToPanel(Number(el.dataset.goto) - 1);
-    });
-  });
 })();
 </script>
 </body>
 </html>
+  </div>
+</details>
